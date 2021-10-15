@@ -61,7 +61,9 @@ def print_team_choices(teams):
 def player_join(team):
     """Returns a string of all of the players on the team joined together"""
     player_names = []
-    for player in team['team_players']:
+    players = team['team_players']
+    players.sort(key=lambda p: p['height'])
+    for player in players:
         player_names.append(player['name'])
     player_string = ", "
     player_string = player_string.join(player_names)
